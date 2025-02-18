@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Run the script to automate scanning in the background and capture its PID
+automate_scanning.sh &
+automate_scanning_pid=$!
+
+# Sleep for a few seconds to allow the script to start executing
+sleep 5
+
+# Check if the script is still running
+if ps -p $automate_scanning_pid > /dev/null; then
+    echo "The automate_scanning.sh script (PID: $automate_scanning_pid) is still running."
+    echo "Waiting for it to finish..."
+    wait $automate_scanning_pid  # Wait for the script to finish
+fi
+
+# Run the command to fetch the last line from the exported.txt file
+last_line=$(tail -n 1 ~/project/final-year-sast-tool/Report/exported.txt)
+
+# Extract the number of vulnerabilities from the last line using grep
+vulnerabilities=$(echo "$last_line" | grep -oE 'Found ([0-9]+) vulnerabilities' | grep -oE '[0-9]+')
+
+# Check if the number of vulnerabilities is greater than 0
+if [ "$vulnerabilities" -gt 0 ]; then
+    echo "Found $vulnerabilities vulnerabilities. Aborting commit."
+    exit 1
+else
+    echo "No vulnerabilities found. Proceeding with the commit."
+    exit 0
+fi
