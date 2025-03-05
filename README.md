@@ -47,3 +47,13 @@ npm install
 npm start
 ```
 
+4. Screenshots
+<img width="1431" alt="image" src="https://github.com/user-attachments/assets/9f298585-c993-45e1-b7d7-b77e1ea4f1f1" />
+
+<img width="1287" alt="image" src="https://github.com/user-attachments/assets/4d7cf091-5078-4db4-9f68-2c3b9fcb61ec" />
+
+<img width="1427" alt="image" src="https://github.com/user-attachments/assets/7d81bf11-a0d7-4bed-a484-430477babc15" />
+
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/af09bc50-0254-48d4-b053-c4293704d547" />
+
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/03215ad7-fe63-45d3-9472-e22c48ad55fe" />
