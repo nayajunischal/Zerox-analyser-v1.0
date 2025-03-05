@@ -56,7 +56,7 @@ def analysis(path, plain):
             content_pure = content.replace(' ', '')
 
             # detect all variables
-            regex_var_detect = "\$[\w\s]+\s?=\s?[\"|'].*[\"|']|define\([\"|'].*[\"|']\)"
+            regex_var_detect = r"\$[\w\s]+\s?=\s?[\"'].*[\"']|define\([\"'].*[\"']\)"
             regex = re.compile(regex_var_detect , re.I)
             matches = regex.findall(content_pure)
             
@@ -69,7 +69,7 @@ def analysis(path, plain):
         
         # High Entropy String
         content_pure = content.replace(' ', '')
-        regex_var_detect = ".*?=\s?[\"|'].*?[\"|'].*?"
+        regex_var_detect = r".*?=\s?[\"'].*?[\"'].*?"
         regex = re.compile(regex_var_detect , re.I)
         matches = regex.findall(content_pure)
         BASE64_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
